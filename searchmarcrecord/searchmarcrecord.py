@@ -19,6 +19,10 @@ def run():
     required_arguments.add_argument('-output-file', type=str, help='the output MARC file (with one found record)',
                                     required=True, dest='output_file')
 
+    optional_arguments.add_argument('-continue-search-after-first-hit', action="store_true",
+                                    help='continues search after first hit, i.e., also determines whether multiple records for the given id occur in the input MARC records file',
+                                    dest='continue_search_after_first_hit')
+
     parser._action_groups.append(optional_arguments)
 
     args = parser.parse_args()
@@ -39,7 +43,15 @@ def run():
                     marc_record_file.write(record.as_marc())
                     marc_record_file.close()
                     found_counter += 1
-        print('found {:d} MARC record(s) for id {:s}'.format(found_counter, marc_record_id))
+                    if not args.continue_search_after_first_hit:
+                        break
+
+    search_result_appendix = ''
+
+    if not args.continue_search_after_first_hit:
+        search_result_appendix = ' (stopped search after first hit)'
+
+    print('found {:d} MARC record(s) for id {:s}{:s}'.format(found_counter, marc_record_id, search_result_appendix))
 
 
 if __name__ == "__main__":

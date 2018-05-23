@@ -28,13 +28,14 @@ searchmarcrecord is a Python3 program that searches a single MARC record via a g
 
 required arguments:
 
-    -id ID                    the record id (default: None)
-    -input-file INPUT_FILE    the input MARC file (with multiple records) (default: None)
-    -output-file OUTPUT_FILE  the output MARC file (with one found record) (default: None)
+    -id ID                              the record id (default: None)
+    -input-file INPUT_FILE              the input MARC file (with multiple records) (default: None)
+    -output-file OUTPUT_FILE            the output MARC file (with one found record) (default: None)
 
 optional arguments:
 
-    -h, --help                show this help message and exit
+    -h, --help                          show this help message and exit
+    -continue-search-after-first-hit    continues search after first hit, i.e., also determines whether multiple records for the given id occur in the input MARC records file (default: False)
 
 ### Usage example
 
