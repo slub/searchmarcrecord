@@ -2,7 +2,7 @@
 
 searchmarcrecord is a Python3 program that searches a single MARC record via a given id (controlfield 001) in a given (binary) MARC records file and writes it into a single (binary) MARC file
 
-## requirements
+## Requirements
 
 * [argparse](https://docs.python.org/3/library/argparse.html#module-argparse)
 * [pymarc](https://github.com/edsu/pymarc)
@@ -21,7 +21,7 @@ searchmarcrecord is a Python3 program that searches a single MARC record via a g
     ```
     (which provides you ```searchmarcrecord``` as a system-wide commandline command)
 
-## usage
+## Usage
 
     searchmarcrecord [-h] -id ID -input-file INPUT_FILE -output-file
                             OUTPUT_FILE
@@ -36,6 +36,6 @@ optional arguments:
 
     -h, --help                show this help message and exit
 
-### usage example
+### Usage example
 
     searchmarcrecord -id [MARC record ID (IN CONTROL FIELD 001)] -input-file [INPUT BINARY MARC RECORDS FILE] -output-file [OUTPUT BINARY MARC RECORD FILE (CONTAINING THE FOUND MARC RECORD)]
